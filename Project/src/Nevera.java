@@ -1,6 +1,6 @@
 public class Nevera extends Electrodomestic {
-    private int frigories;
-    private String soroll;
+    public int frigories;
+    public String soroll;
 
     public Nevera() {}
 
@@ -14,6 +14,13 @@ public class Nevera extends Electrodomestic {
     @Override
     public Electrodomestic clone() {
         return new Nevera(this);
+    }
+
+    @Override
+    public boolean equals(Object object2) {
+        if (!(object2 instanceof Electrodomestic) || !super.equals(object2)) return false;
+        Nevera cast2 = (Nevera) object2;
+        return cast2.frigories  == frigories && cast2.soroll.equals(soroll);
     }
     
 }

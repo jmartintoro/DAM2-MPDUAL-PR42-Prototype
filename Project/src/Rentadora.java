@@ -1,6 +1,6 @@
 public class Rentadora extends Electrodomestic {
-    private String revolucions;
-    private String soroll;
+    public String revolucions;
+    public String soroll;
 
     public Rentadora() {}
 
@@ -15,6 +15,13 @@ public class Rentadora extends Electrodomestic {
     @Override
     public Electrodomestic clone() {
         return new Rentadora(this);
+    }
+
+    @Override
+    public boolean equals(Object object2) {
+        if (!(object2 instanceof Electrodomestic) || !super.equals(object2)) return false;
+        Rentadora cast2 = (Rentadora) object2;
+        return cast2.revolucions.equals(revolucions) && cast2.soroll.equals(soroll);
     }
     
 }

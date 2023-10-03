@@ -1,6 +1,6 @@
 public class Forn extends Electrodomestic {
-    private int temperatura;
-    private String autoneteja;
+    public int temperatura;
+    public String autoneteja;
 
     public Forn() {}
 
@@ -15,6 +15,13 @@ public class Forn extends Electrodomestic {
     @Override
     public Electrodomestic clone() {
         return new Forn(this);
+    }
+
+    @Override
+    public boolean equals(Object object2) {
+        if (!(object2 instanceof Electrodomestic) || !super.equals(object2)) return false;
+        Forn cast2 = (Forn) object2;
+        return cast2.temperatura  == temperatura && cast2.autoneteja.equals(autoneteja);
     }
     
 }
